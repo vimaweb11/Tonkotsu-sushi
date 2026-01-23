@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tonkotsu Ramen | FU.DO - Auténtica Cocina Japonesa</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Descubre nuestro auténtico Tonkotsu Ramen: caldo cremoso de huesos de cerdo cocido por 18 horas, fideos ultra-finos y toppings tradicionales. Una experiencia gastronómica única.">
+    <meta name="keywords" content="tonkotsu ramen, ramen japonés, FU.DO, cocina japonesa, ramen auténtico">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Tonkotsu Ramen | FU.DO">
+    <meta property="og:description" content="Auténtico Tonkotsu Ramen con caldo cremoso de huesos de cerdo y fideos artesanales">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="tonkotsu-hero.jpg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --color-primary: #0A1628;
+            --color-secondary: #6B0F2A;
+            --color-accent-blue: #1A2B4A;
+            --color-accent-red: #8B1538;
+            --color-green: #10B981;
+            --color-light: #F8F9FB;
+            --color-white: #ffffff;
+            --color-text-dark: #1F2937;
+            --color-text-light: #E5E7EB;
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            color: var(--color-text-light);
+            line-height: 1.6;
+            background: var(--color-primary);
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.95) 0%, rgba(139, 21, 56, 0.95) 100%);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.2rem 5%;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+        
+        /* 
+        IMAGEN REQUERIDA: logo.png
+        Descripción: Logo de FU.DO
+        Ubicación: En el root del repositorio
+        */
+        
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-white);
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .nav-links a:hover {
+            border-bottom: 2px solid var(--color-white);
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 70vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.85) 0%, rgba(139, 21, 56, 0.75) 100%);
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.25;
+            z-index: 1;
+        }
+        
+        /* 
+        IMAGEN REQUERIDA: tonkotsu-hero.jpg
+        Descripción: Fotografía principal del bowl de Tonkotsu Ramen
+        Dimensiones recomendadas: 1920x1080px o superior
+        */
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 6rem;
+            font-weight: 400;
+            letter-spacing: 12px;
+            margin-bottom: 3rem;
+            color: var(--color-white);
+            text-shadow: 0 0 40px rgba(139, 21, 56, 0.6), 0 0 80px rgba(139, 21, 56, 0.4);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 0 2rem 3rem;
+            background: var(--color-primary);
+        }
+        
+        .cta-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--color-white);
+            letter-spacing: 1px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        .cta-whatsapp {
+            background: var(--color-green);
+            color: var(--color-white);
+        }
+        
+        .cta-pedidoya {
+            background: var(--color-secondary);
+            color: var(--color-white);
+        }
+        
+        .cta-icon {
+            font-size: 1.3rem;
+        }
+        
+        /* Ingredients Section */
+        .ingredients {
+            padding: 6rem 5%;
+            background: var(--color-accent-blue);
+            position: relative;
+        }
+        
+        .ingredients::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-secondary) 0%, var(--color-accent-red) 100%);
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 3.5rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 1rem;
+            letter-spacing: 4px;
+            color: var(--color-white);
+            text-shadow: 0 0 30px rgba(139, 21, 56, 0.5);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--color-accent-red);
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            margin-bottom: 4rem;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .ingredient-card {
+            text-align: center;
+            padding: 2.5rem;
+            background: linear-gradient(145deg, rgba(10, 22, 40, 0.6) 0%, rgba(26, 43, 74, 0.4) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            transition: all 0.4s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: 2px solid rgba(139, 21, 56, 0.2);
+        }
+        
+        .ingredient-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(139, 21, 56, 0.4);
+            border: 2px solid var(--color-secondary);
+            background: linear-gradient(145deg, rgba(139, 21, 56, 0.15) 0%, rgba(26, 43, 74, 0.5) 100%);
+        }
+        
+        .ingredient-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .ingredient-name {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--color-white);
+            font-weight: 600;
+        }
+        
+        .ingredient-description {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            line-height: 1.8;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 3rem 5%;
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.95) 0%, rgba(139, 21, 56, 0.95) 100%);
+            color: var(--color-white);
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        footer p {
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 4.5rem;
+                letter-spacing: 8px;
+            }
+            
+            .ingredients-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 5%;
+            }
+            
+            .logo img {
+                height: 35px;
+            }
+            
+            .nav-links {
+                gap: 1.5rem;
+            }
+            
+            .nav-links a {
+                font-size: 0.8rem;
+            }
+            
+            .hero {
+                min-height: 60vh;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+                letter-spacing: 6px;
+            }
+            
+            .cta-title {
+                font-size: 1.3rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 320px;
+                justify-content: center;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .ingredients {
+                padding: 4rem 5%;
+            }
+            
+            .ingredients-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .nav-links a {
+                font-size: 0.7rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+                letter-spacing: 4px;
+            }
+            
+            .cta-title {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="fudo-logo.png" alt="FU.DO Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#menu">Menú</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#local">Local</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="tonkotsu-hero.jpg" alt="Tonkotsu Ramen" class="hero-background">
+        <div class="hero-content">
+            <h1>TONKOTSU</h1>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2 class="cta-title">¡Hacé tu pedido!</h2>
+        <div class="cta-buttons">
+            <a href="https://wa.me/5491112345678" class="cta-button cta-whatsapp" target="_blank">
+                <span class="cta-icon">💬</span>
+                WhatsApp
+            </a>
+            <a href="https://www.pedidosya.com.ar" class="cta-button cta-pedidoya" target="_blank">
+                <span class="cta-icon">🛵</span>
+                Pedido Ya
+            </a>
+        </div>
+    </section>
+
+    <!-- Ingredients Section -->
+    <section id="menu" class="ingredients">
+        <div class="section-container">
+            <h2 class="section-title">Ingredientes Selectos</h2>
+            <p class="section-subtitle">Cada Elemento Cuenta una Historia</p>
+            
+            <div class="ingredients-grid">
+                <div class="ingredient-card">
+                    <div class="ingredient-icon">🍜</div>
+                    <h3 class="ingredient-name">Caldo Tonkotsu</h3>
+                    <p class="ingredient-description">Huesos de cerdo cocidos 18 horas hasta lograr una textura cremosa y color blanco característico. Enriquecido con ajo, jengibre y cebollín.</p>
+                </div>
+                
+                <div class="ingredient-card">
+                    <div class="ingredient-icon">🥢</div>
+                    <h3 class="ingredient-name">Fideos Artesanales</h3>
+                    <p class="ingredient-description">Fideos ultra-finos preparados al estilo Hakata. Cocción precisa para mantener la firmeza perfecta que caracteriza al tonkotsu tradicional.</p>
+                </div>
+                
+                <div class="ingredient-card">
+                    <div class="ingredient-icon">🥩</div>
+                    <h3 class="ingredient-name">Chashu</h3>
+                    <p class="ingredient-description">Panceta de cerdo marinada en salsa de soja y mirin, braseada lentamente hasta alcanzar una textura tierna y jugosa.</p>
+                </div>
+                
+                <div class="ingredient-card">
+                    <div class="ingredient-icon">🥚</div>
+                    <h3 class="ingredient-name">Ajitsuke Tamago</h3>
+                    <p class="ingredient-description">Huevo marinado de 6 minutos con yema cremosa. Macerado en salsa especial que aporta profundidad de sabor.</p>
+                </div>
+                
+                <div class="ingredient-card">
+                    <div class="ingredient-icon">🌿</div>
+                    <h3 class="ingredient-name">Menma</h3>
+                    <p class="ingredient-description">Brotes de bambú fermentados que aportan textura crujiente y un toque salado balanceado.</p>
+                </div>
+                
+                <div class="ingredient-card">
+                    <div class="ingredient-icon">🧄</div>
+                    <h3 class="ingredient-name">Toppings Frescos</h3>
+                    <p class="ingredient-description">Cebollín finamente picado, semillas de sésamo tostadas, nori y jengibre encurtido. Terminación perfecta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 FU.DO — Auténtica Cocina Japonesa</p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe ingredient cards
+        document.querySelectorAll('.ingredient-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s, transform 0.6s';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
