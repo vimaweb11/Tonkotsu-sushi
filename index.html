@@ -297,7 +297,113 @@
             color: var(--color-text-light);
             line-height: 1.8;
         }
+        /* Contact Section */
+        .contact-section {
+            padding: 6rem 5%;
+            background: var(--color-primary);
+        }
         
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-card {
+            text-align: center;
+            padding: 2.5rem;
+            background: linear-gradient(145deg, rgba(26, 43, 74, 0.4) 0%, rgba(10, 22, 40, 0.6) 100%);
+            border-radius: 12px;
+            border: 2px solid rgba(139, 21, 56, 0.2);
+            transition: all 0.3s;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-secondary);
+            box-shadow: 0 8px 20px rgba(139, 21, 56, 0.3);
+        }
+        
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            color: var(--color-white);
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info {
+            font-size: 1rem;
+            color: var(--color-text-light);
+        }
+        
+        /* Location Section */
+        .location-section {
+            padding: 6rem 5%;
+            background: var(--color-accent-blue);
+            position: relative;
+        }
+        
+        .location-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-secondary) 0%, var(--color-accent-red) 100%);
+        }
+        
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .location-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+        
+        .location-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 2rem;
+            background: linear-gradient(145deg, rgba(10, 22, 40, 0.6) 0%, rgba(26, 43, 74, 0.4) 100%);
+            border-radius: 12px;
+            border: 2px solid rgba(139, 21, 56, 0.2);
+        }
+        
+        .location-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+        
+        .location-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            color: var(--color-white);
+            margin-bottom: 0.5rem;
+        }
+        
+        .location-text {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            line-height: 1.8;
+        }
+        
+        .map-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
         /* Footer */
         footer {
             padding: 3rem 5%;
@@ -389,6 +495,18 @@
             .ingredients-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .map-container iframe {
+                height: 300px;
             }
         }
         
@@ -495,7 +613,75 @@
             </div>
         </div>
     </section>
+<!-- Contacto Section -->
+    <section id="contacto" class="contact-section">
+        <div class="section-container">
+            <h2 class="section-title">Contacto</h2>
+            <p class="section-subtitle">Estamos aquí para servirte</p>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3 class="contact-title">Teléfono</h3>
+                    <p class="contact-info">+54 911 1234-5678</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3 class="contact-title">Email</h3>
+                    <p class="contact-info">hola@fudo.com.ar</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <h3 class="contact-title">Redes Sociales</h3>
+                    <p class="contact-info">@fudo.buenosaires</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Local Section -->
+    <section id="local" class="location-section">
+        <div class="section-container">
+            <h2 class="section-title">Nuestro Local</h2>
+            <p class="section-subtitle">Te esperamos en el corazón de Buenos Aires</p>
+            
+            <div class="location-content">
+                <div class="location-info">
+                    <div class="location-item">
+                        <div class="location-icon">📍</div>
+                        <div>
+                            <h3 class="location-title">Dirección</h3>
+                            <p class="location-text">Av. Corrientes 1234, CABA<br>Buenos Aires, Argentina</p>
+                        </div>
+                    </div>
+                    
+                    <div class="location-item">
+                        <div class="location-icon">🕒</div>
+                        <div>
+                            <h3 class="location-title">Horarios</h3>
+                            <p class="location-text">
+                                Lunes a Viernes: 12:00 - 23:00<br>
+                                Sábados y Domingos: 12:00 - 00:00
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0168878136744!2d-58.38375908477025!3d-34.60373446500441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzTCsDM2JzEzLjQiUyA1OMKwMjInNTcuMSJX!5e0!3m2!1sen!2sar!4v1234567890123!5m2!1sen!2sar" 
+                        width="100%" 
+                        height="350" 
+                        style="border:0; border-radius: 12px;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Footer -->
     <footer>
         <p>© 2026 FU.DO — Auténtica Cocina Japonesa</p>
